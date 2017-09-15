@@ -28,6 +28,7 @@ export default class HomeComponent extends Component {
   }
   static navigationOptions = {
     title: 'Home',
+    headerLeft: null
   };
   logoutClicked(event) {
     

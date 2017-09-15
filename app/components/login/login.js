@@ -10,7 +10,7 @@
   TextInput,
   View
 } from 'react-native';
-
+import { NavigationActions } from 'react-navigation'
 import firebase from 'firebase';
 export default class LoginComponent extends Component {
   static navigationOptions = {
@@ -19,14 +19,20 @@ export default class LoginComponent extends Component {
 
   constructor(props) {
     super(props);
-
-    const { navigate } = this.props.navigation;
+   
+    
     this.state = { email: '', password: '' };
 
     if(firebase.auth().currentUser)
     {
-
-      navigate('home');
+      const resetAction = NavigationActions.reset({
+        index: 0,
+        actions: [
+          NavigationActions.navigate({ routeName: 'home'})
+        ]
+      })
+      this.props.navigation.dispatch(resetAction)
+    
     }
 
   }
