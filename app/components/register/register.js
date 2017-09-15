@@ -35,9 +35,8 @@ export default class RegisterComponent extends Component {
           navigate("home");
           this.setState({ error: '', loading: false });
         })
-        .catch(() => {
-          this.setState({ error: 'Authentication failed.', loading: false });
-          alert('Authentication failed.');
+        .catch((error) => {
+          alert(error);
         });
     }
   }
